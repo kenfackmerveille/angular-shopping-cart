@@ -1,0 +1,17 @@
+<app-header></app-header>
+<button routerLink="/view-cart" class="view">view-cart</button>
+<div class="containers">
+    <div class="container" *ngFor="let product of products">
+        <img src="{{product.Image}}" alt="">
+        <h3>{{product.names}}</h3>
+        <p>price <span>{{product.price | currency: "EUR"}}</span></p>
+        <form class="form">
+            <div class="select">
+                <!-- <label for="">quantity</label> -->
+                <!-- <input type="number" name="quantity" [(ngModel)]="quantities[product.id]" min="0" step="1"> -->
+            </div>
+    
+            <button type="button" (click)="addToCart(product.id)">Add to cart</button>
+        </form>
+    </div>
+</div>

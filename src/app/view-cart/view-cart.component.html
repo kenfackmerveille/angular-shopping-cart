@@ -1,0 +1,43 @@
+<app-header></app-header>
+<h3>shopping Cart</h3>
+
+<div class="cart-item">
+  <table class="table">
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>unit Price</th>
+        <th>Delete</th>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td> {{item.names}}</td>
+        <td >
+           <button (click)="decrease(item)">-</button>
+          {{item.quantity}}
+          <button (click)="increase(item)">+</button>
+        </td>
+        <td>{{item.price | currency : 'EUR'}}</td>
+        <td><button (click)="delete(item)"><img src="../../assets/poubebelle.png" alt=""></button></td>
+    </tr>
+    <tr>
+      <th>Total Product</th>
+      <th>ToTal price</th>
+      <th>price to pay</th>
+    </tr>
+    <tr >
+      <td>{{totalProduct}}</td>
+      <td>{{totalPr | currency : 'EUR'}}</td>
+      <td>{{totalPrice | currency : 'EUR'}}</td>
+    </tr>
+  </table>
+
+</div>
+
+<div class="pop-up" *ngIf = "popUp">
+  <!-- <div *ngFor="let item of items"> -->
+    <p>do you want to delete ?</p>
+    <button (click)="confirmDelete()">yes</button>
+    <button>no</button>
+  <!-- </div> -->
+</div>
+
